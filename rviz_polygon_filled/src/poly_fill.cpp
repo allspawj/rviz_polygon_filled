@@ -88,6 +88,9 @@ void PolygonFilledDisplay::processMessage(const geometry_msgs::PolygonStamped::C
                msg->header.frame_id.c_str(), qPrintable( fixed_frame_ ));
   }
 
+  if(msg->polygon.points.size() > 0)
+	  position.z = msg->polygon.points[0].z;
+
   scene_node_->setPosition( position );
   scene_node_->setOrientation( orientation );
 
